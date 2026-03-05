@@ -1,36 +1,12 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+原状回復管理カンバンボード
 
-## Getting Started
+不動産管理の現場において、退去から入居までに発生する原状回復工事は、複数の物件と工程が同時並行で動く非常に煩雑な業務です。既存の管理システムも存在しますが、機能の過多による操作の複雑さや、外出先からの更新が困難であるといった課題を抱えていました。特に、各部屋が現在どの進捗段階にあるのかを直感的に把握できないという不透明さが、現場にとっての大きな負担となっています。こうした実務上の課題を解消し、誰でも一目で状況を確認できるツールを目指して開発しました。
 
-First, run the development server:
+設計において最も優先したのは、現場担当者が物件確認の合間にスマートフォンで素早く操作できる体験です。難しい操作手順を排除するため、dnd-kitを用いたドラッグアンドドロップによるカンバン方式を採用しました。カードを動かすという直感的なアクションだけで進捗を更新できる仕組みを整え、現場でのとっつきやすさを重視したシンプルなインターフェースを追求しています。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+技術面での新たな挑戦として、ORMにPrismaを採用しました。プログラミングスクールのカリキュラムには含まれていない技術でしたが、物件、部屋、タスクという階層構造を持つデータを型安全かつ効率的に扱うために独学での導入を決めました。公式ドキュメントやコミュニティの情報を参照しながら手探りで実装を進め、スキーマ設計からSQLiteへのデータ永続化までを実現しています。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+技術スタック
+・Frontend：Next.js (App Router), TypeScript
+・Library：@dnd-kit
+・Database/ORM：SQLite, Prisma
